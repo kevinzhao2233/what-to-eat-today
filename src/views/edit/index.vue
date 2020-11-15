@@ -1,5 +1,5 @@
 <template>
-  <div class="edit">
+  <div class="page-edit">
     123
   </div>
 </template>

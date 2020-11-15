@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div id="layout">
     <Header/>
     <router-view/>
   </div>
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.layout {
-  height: 10px;
+#layout {
+  height: 100%;
 }
 </style>

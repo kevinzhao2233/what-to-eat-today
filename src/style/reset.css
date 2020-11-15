@@ -130,6 +130,10 @@ xmp {
   padding: 0;
   margin: 0;
 }
+html,
+body {
+  height: 100%;
+}
 body {
   font: 14px/1 "PingFang SC", "Microsoft YaHei", sans-serif;
   -webkit-font-smoothing: antialiased;
