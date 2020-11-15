@@ -1,7 +1,7 @@
 <template>
   <div class="com-edit-mark">
     <span class="txt">{{data.title}}</span>
-    <div class="opt">
+    <div v-if="showOpt" class="opt">
       <i class="ri-close-circle-fill"></i>
     </div>
   </div>
@@ -14,6 +14,10 @@ export default {
     data: {
       type: Object,
       default: null
+    },
+    showOpt: {
+      type: Boolean,
+      default: false
     }
   }
 }

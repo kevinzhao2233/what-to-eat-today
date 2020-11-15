@@ -50,10 +50,10 @@ export default {
     },
 
     timeHandler () {
-      let count = Math.floor(Math.random() * (this.res.length - 1))
+      let count = Math.floor(Math.random() * (this.res.length))
       this.current = this.res[count].title
-      while (count === this.count) {
-        count = Math.floor(Math.random() * (this.res.length - 1))
+      while (this.res.length > 1 && count === this.count) {
+        count = Math.floor(Math.random() * (this.res.length))
       }
       this.count = count
       this.current = this.res[count].title

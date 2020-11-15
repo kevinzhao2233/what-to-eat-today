@@ -39,8 +39,18 @@ const state = {
   ]
 }
 const mutations = {
+  UPDATE: (state, data) => {
+    const index = state.boxs.findIndex(item => item.id === data.id)
+    if (index > -1) {
+      state.boxs.splice(index, 1, data)
+    }
+  }
 }
+
 const actions = {
+  update: ({ commit }, data) => {
+    commit('UPDATE', Object.assign({}, data))
+  }
 }
 
 export default {
