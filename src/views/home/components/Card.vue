@@ -1,11 +1,11 @@
 <template>
-  <div class="com-home-card" @click="goSurprise">
+  <div class="com-home-card" @mousedown="goSurprise">
     <div class="title">{{ data.title }}</div>
     <div v-if="handlerStatus" class="handler-box">
-      <div class="handler">
+      <div class="handler" @mousedown.stop="goEdit">
         <i class="ri-edit-2-fill"></i>
       </div>
-      <div class="handler">
+      <div class="handler" @mousedown.stop="remove">
         <i class="ri-close-circle-fill"></i>
       </div>
     </div>
@@ -22,18 +22,32 @@ export default {
     },
     handlerStatus: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   methods: {
+    // 去抽签
     goSurprise () {
       this.$router.push({
         name: 'Surprise',
         query: {
-          type: 'go',
           id: this.data.id
         }
       })
+    },
+    // 去编辑
+    goEdit () {
+      this.$router.push({
+        name: 'Edit',
+        query: {
+          type: 'edit',
+          id: this.data.id
+        }
+      })
+    },
+    // 删除一个签盒
+    remove () {
+      this.$store.dispatch('mark/removeMarkBox', { id: this.data.id })
     }
   }
 }
@@ -71,6 +85,33 @@ export default {
 
   .title {
     font-size: 18px;
+    color: @m-color-1;
+  }
+
+  .handler-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 18vw;
+    background: rgba(@m-color-4, 0.2);
+    border-bottom-right-radius: 3vw;
+    border-bottom-left-radius: 3vw;
+
+    .handler {
+      display: flex;
+      flex: 1;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      i {
+        font-size: 24px;
+        color: @color-1;
+      }
+    }
   }
 }
 </style>
