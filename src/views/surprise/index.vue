@@ -33,6 +33,7 @@ export default {
       const data = this.markBoxs.find(item => item.id === this.$route.query.id)
       this.res = data.mark
       this.$store.dispatch('app/changeHeaderTitle', { title: data.title })
+      this.$store.dispatch('app/changeHeaderTheme', { theme: 'colorful' })
     },
 
     start () {

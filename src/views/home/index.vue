@@ -19,6 +19,7 @@ export default {
   },
   created () {
     this.$store.dispatch('app/changeHeaderTitle', { title: '今天吃什么？' })
+    this.$store.dispatch('app/changeHeaderTheme', { theme: 'hide' })
   }
 }
 </script>
@@ -46,6 +47,7 @@ export default {
     letter-spacing: 2px;
     background: @color-5;
     border-radius: 3vw;
+    transition: transform 0.2s ease;
 
     &::after {
       position: absolute;
@@ -58,10 +60,9 @@ export default {
       content: '';
       border-radius: 6vw;
       box-shadow: 0 3vw 6vw -3vw @color-7;
-      transition: 0.2s ease;
     }
 
-    &:hover {
+    &:active {
       transform: scale(0.9);
     }
   }

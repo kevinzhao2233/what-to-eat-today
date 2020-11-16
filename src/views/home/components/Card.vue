@@ -64,7 +64,7 @@ export default {
   vertical-align: top;
   background: @color-5;
   border-radius: 3vw;
-  transition: 0.2s ease;
+  transition: transform 0.2s ease;
 
   &::after {
     position: absolute;

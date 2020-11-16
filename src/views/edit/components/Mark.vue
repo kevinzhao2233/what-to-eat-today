@@ -1,7 +1,7 @@
 <template>
   <div class="com-edit-mark" :class="{ hide }">
     <span class="txt">{{data.title}}</span>
-    <div v-if="showOpt" class="opt" @mousedown="removeMark">
+    <div v-if="showOpt" class="opt" @mousedown.stop="removeMark">
       <i class="ri-close-circle-fill"></i>
     </div>
   </div>

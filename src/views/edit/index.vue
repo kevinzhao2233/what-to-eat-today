@@ -116,6 +116,7 @@ export default {
     },
     removeMark (mark) {
       // TODO 处理重名问题
+      console.log('remove', mark)
       const index = this.res.mark.findIndex(item => item.title === mark.title)
       if (index > -1) {
         // 删除上面的

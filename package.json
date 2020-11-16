@@ -1,6 +1,6 @@
 {
   "name": "what-to-eat-today",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -45,7 +45,7 @@
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,jsx,vue}": [
+    "src/**/*.{js,jsx,vue}": [
       "vue-cli-service lint",
       "git add"
     ]
