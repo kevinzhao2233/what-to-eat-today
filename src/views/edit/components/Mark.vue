@@ -1,7 +1,7 @@
 <template>
-  <div class="com-edit-mark">
+  <div class="com-edit-mark" :class="{ hide }">
     <span class="txt">{{data.title}}</span>
-    <div v-if="showOpt" class="opt">
+    <div v-if="showOpt" class="opt" @mousedown="removeMark">
       <i class="ri-close-circle-fill"></i>
     </div>
   </div>
@@ -18,6 +18,15 @@ export default {
     showOpt: {
       type: Boolean,
       default: false
+    },
+    hide: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    removeMark () {
+      this.$emit('on-remove')
     }
   }
 }
@@ -39,7 +48,11 @@ export default {
   border-radius: 2vw;
 
   &.hide {
-    border: 1px solid @m-color-4;
+    border: 1px solid @m-color-5;
+
+    .txt {
+      color: @m-color-8;
+    }
   }
 
   .txt {

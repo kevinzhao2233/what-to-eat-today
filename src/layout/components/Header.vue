@@ -1,12 +1,9 @@
 <template>
   <div class="layout-header">
-    <span class="title">{{ header.title }}</span>
-    <div class="opt">
-      <i class="icon ri-more-fill"></i>
-      <div v-if="isShowOpt" class="opt-box">
-        <div v-for="item in header.options" :key="item.name" class="item">{{ item.name }}</div>
-      </div>
-    </div>
+    <span class="title">
+      <i class="icon ri-home-3-line" :class="header.theme" @mousedown="goHome"></i>
+      {{ header.title }}
+    </span>
   </div>
 </template>
 
@@ -23,8 +20,12 @@ export default {
     })
   },
 
-  mounted () {
-    this.$store.dispatch('app/changeHeaderTitle', { title: '今天吃什么呀？' })
+  methods: {
+    goHome () {
+      this.$router.replace({
+        name: 'Home'
+      })
+    }
   }
 }
 </script>
@@ -41,41 +42,28 @@ export default {
   width: 100%;
   height: 60px;
   padding: 0 12px;
-  background: #fa525211;
 
   .title {
+    padding: 1vw;
     font-size: 20px;
-  }
-
-  .opt {
-    position: relative;
-    width: 32px;
-    height: 30px;
-    text-align: center;
-    background: @m-color-1;
-    border-radius: 6px;
 
     .icon {
-      font-size: 20px;
-      line-height: 30px;
-      color: @m-color-6;
-    }
+      padding: 2vw;
+      vertical-align: middle;
+      border-radius: 2vw;
 
-    .opt-box {
-      position: absolute;
-      top: 20px;
-      right: 0;
-      padding: 4px 0;
-      overflow: hidden;
-      background: @m-color-1;
-      border: 1px solid @m-color-4;
-      border-radius: 6px;
+      &.colorful {
+        color: @m-color-1;
+        background: @color-4;
+      }
 
-      .item {
-        display: inline-block;
-        padding: 4px 16px;
-        text-align: left;
-        white-space: nowrap;
+      &.white {
+        color: @color-4;
+        background: @m-color-1;
+      }
+
+      &.hide {
+        display: none;
       }
     }
   }

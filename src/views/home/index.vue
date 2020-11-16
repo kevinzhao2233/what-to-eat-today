@@ -16,6 +16,9 @@ export default {
     ...mapState({
       markBoxs: state => state.mark.boxs
     })
+  },
+  created () {
+    this.$store.dispatch('app/changeHeaderTitle', { title: '今天吃什么？' })
   }
 }
 </script>
@@ -26,7 +29,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 18vw 3vw 4vw;
+  padding: 18vw 3vw 30vw;
 
   .btn {
     position: fixed;

@@ -38,6 +38,7 @@ const state = {
     }
   ]
 }
+
 const mutations = {
   UPDATE: (state, data) => {
     const index = state.boxs.findIndex(item => item.id === data.id)
