@@ -45,10 +45,11 @@ export default {
 
   .title {
     padding: 1vw;
-    font-size: 20px;
+    font-size: 17px;
 
     .icon {
       padding: 2vw;
+      margin-right: 2vw;
       vertical-align: middle;
       border-radius: 2vw;
 
