@@ -1,7 +1,7 @@
 <template>
   <div class="com-home-card" @mousedown="goSurprise">
     <div class="title">{{ data.title }}</div>
-    <div v-if="handlerStatus" class="handler-box">
+    <div v-if="showOpt" class="handler-box">
       <div class="handler" @mousedown.stop="goEdit">
         <i class="ri-edit-2-fill"></i>
       </div>
@@ -20,9 +20,9 @@ export default {
       type: Object,
       default: null
     },
-    handlerStatus: {
+    showOpt: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   methods: {

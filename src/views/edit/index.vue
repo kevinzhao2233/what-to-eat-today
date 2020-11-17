@@ -288,16 +288,16 @@ export default {
         transform: scale(0.9);
       }
     }
-  }
 
-  .btn-s {
-    width: 20vw;
-    margin-right: 1vw;
-  }
+    .btn-s {
+      width: 20vw;
+      margin-right: 1vw;
+    }
 
-  .btn-m {
-    // width: 70vw;
-    flex: 1;
+    .btn-m {
+      // width: 70vw;
+      flex: 1;
+    }
   }
 }
 </style>
