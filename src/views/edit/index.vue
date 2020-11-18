@@ -25,7 +25,7 @@
     </div>
     <div class="bottom-btn-box">
       <div class="btn btn-s" @mousedown="markStatus === 0 ? handleRemoveMark() : handleCancel()">{{markStatus === 0 ? '编辑' : '完成'}}</div>
-      <div class="btn btn-m" @mousedown="handleAddMark">添加</div>
+      <div class="btn btn-m" @mousedown="handleAddMark">添加小签</div>
     </div>
     <BaseMask v-if="addMaskState" @cancel="closeMask">
       <div class="input-box">
@@ -62,24 +62,11 @@ export default {
   },
   methods: {
     init () {
-      if (this.$route.query.type === 'edit') {
-        this.pageStatus = 'edit'
-        this.$store.dispatch('app/changeHeaderTitle', { title: '' })
-        this.edit()
-      }
-      if (this.$route.query.type === 'create') {
-        this.pageStatus = 'create'
-        this.$store.dispatch('app/changeHeaderTitle', { title: '新建' })
-        this.create()
-      }
-      this.$store.dispatch('app/changeHeaderTheme', { theme: 'white' })
-    },
-    edit () {
+      this.pageStatus = this.$route.query.type
       this.res = this.markBoxs.find(item => item.id === this.$route.query.id)
       this.title = this.res.title
-    },
-    create () {
-      //
+      this.$store.dispatch('app/changeHeaderTitle', { title: '' })
+      this.$store.dispatch('app/changeHeaderTheme', { theme: 'white' })
     },
     changeTitle () {
       this.res.title = this.title
@@ -181,6 +168,11 @@ export default {
     width: 69vw;
     color: @m-color-9;
     border-bottom: 1px solid @color-3;
+
+    &:focus {
+      text-align: left;
+      border-bottom: 1px solid @color-3;
+    }
   }
 
   .banner {

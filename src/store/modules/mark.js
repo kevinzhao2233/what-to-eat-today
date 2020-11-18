@@ -18,7 +18,8 @@ const defBoxs = [
       { title: '羊杂' },
       { title: '土豆丝盖饭' },
       { title: '土豆烧牛腩' },
-      { title: '炒面片' }
+      { title: '炒面片' },
+      { title: '天津冷冻虾私房菜' }
     ],
     hideMark: [
       { title: '猪头肉' },
@@ -29,22 +30,22 @@ const defBoxs = [
     id: '10087',
     title: '这次谁刷马桶？',
     mark: [
-      { title: '赵凯文' },
-      { title: 'Mine Owner' },
-      { title: '路帅' },
-      { title: '赵光涛' },
-      { title: '李智豪' }
+      { title: '李白' },
+      { title: '蜘蛛侠' },
+      { title: '秦始皇' },
+      { title: '白骨精' },
+      { title: '王二蛋' },
+      { title: '灭霸' }
     ]
   },
   {
     id: '10088',
     title: '去哪家吃饭啊？',
     mark: [
-      { title: '香盛源' },
-      { title: '牛卖肉' },
-      { title: '农家菜馆' },
-      { title: '尔力' },
-      { title: '牛肉面管' }
+      { title: '海底捞' },
+      { title: '林正英炒饭' },
+      { title: '大盘鸡' },
+      { title: '肯德基' }
     ]
   }
 ]
@@ -54,6 +55,15 @@ const state = {
 }
 
 const mutations = {
+  ADD_MARK_BOX (state, data) {
+    const newBox = {
+      id: data.id,
+      title: '新的签盒',
+      mark: [{ title: '小签' }],
+      hideMark: []
+    }
+    state.boxs.unshift(newBox)
+  },
   // 不用箭头函数，为了绑定 this，commit 的 type 需要全路径
   UPDATE (state, data) {
     const index = state.boxs.findIndex(item => item.id === data.id)
@@ -75,15 +85,15 @@ const mutations = {
 }
 
 const actions = {
+  addMarkBox: ({ commit }, data) => {
+    commit('ADD_MARK_BOX', data)
+  },
   update: ({ commit }, data) => {
     commit('UPDATE', Object.assign({}, data))
   },
   removeMarkBox: ({ commit }, data) => {
     commit('REMOVE_MARK_BOX', data)
   }
-  // saveBox: ({ state }) => {
-  //   setLocalStorage({ key: 'MARK_BOXS', value: state.boxs })
-  // }
 }
 
 export default {
