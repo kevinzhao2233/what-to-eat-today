@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.6168be32b8823ffb71714f52a8cbf51b.js"
+  "/precache-manifest.2abcd53f9725dfea71c08f163a15e9de.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "what-to-eat-today"});
