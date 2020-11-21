@@ -14,7 +14,8 @@ export default {
     current: '点击屏幕开始抽签',
     timer: 0,
     interval: 0,
-    count: 0
+    randomCount: 0,
+    counter: 12 // 计算随机的次数，12次后就得到结果
   }),
 
   computed: {
@@ -39,37 +40,37 @@ export default {
     start () {
       this.clear()
       this.loop()
-      this.timer = setTimeout(() => {
-        clearInterval(this.interval)
-      }, 2000)
     },
 
     loop () {
       this.interval = setInterval(() => {
         this.timeHandler()
-      }, 150)
+      }, 120)
     },
 
     timeHandler () {
-      let count = Math.floor(Math.random() * (this.res.length))
-      this.current = this.res[count].title
-      while (this.res.length > 1 && count === this.count) {
-        count = Math.floor(Math.random() * (this.res.length))
+      let randomCount = Math.floor(Math.random() * (this.res.length))
+      this.current = this.res[randomCount].title
+      while (this.res.length > 1 && randomCount === this.randomCount && this.counter > 0) {
+        randomCount = Math.floor(Math.random() * (this.res.length))
       }
-      this.count = count
-      this.current = this.res[count].title
-      console.log(count)
+      if (this.counter <= 0) {
+        this.counter = 12
+        this.current = this.res[randomCount].title
+        this.clear()
+      }
+      this.counter--
+      this.randomCount = randomCount
+      this.current = this.res[randomCount].title
     },
 
     clear () {
-      if (this.timer) {
-        clearTimeout(this.timer)
-      }
       if (this.interval) {
         clearInterval(this.interval)
       }
     }
   },
+
   beforeDestroy () {
     this.clear()
   }
