@@ -4,10 +4,7 @@ function setLocalStorage ({ key, value }) {
 }
 
 function hasLocalStorage (key) {
-  const res = window.localStorage.getItem(key)
-  if (!res) return false
-  if (JSON.parse(res).length < 2) return false
-  return true
+  return !!window.localStorage.getItem(key)
 }
 
 const defBoxs = [
@@ -63,6 +60,7 @@ const mutations = {
       hideMark: []
     }
     state.boxs.unshift(newBox)
+    this.commit('mark/SAVE_BOXS')
   },
   // 不用箭头函数，为了绑定 this，commit 的 type 需要全路径
   UPDATE (state, data) {
