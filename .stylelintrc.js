@@ -14,8 +14,6 @@ module.exports = {
     'shorthand-property-no-redundant-values': true,
     // 不允许属性值带供应商前缀   如：display: -webkit-flex;
     'value-no-vendor-prefix': true,
-    // 禁止使用!important
-    "declaration-no-important": false,
     // 禁止将可合并的属性分开写，如分别写padding-[left|right|top|bottom],但如果四个少一个的话可以分开写，如只写 right, left,top
     'declaration-block-no-redundant-longhand-properties': true,
     // 一行可显示属性个数
