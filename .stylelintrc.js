@@ -6,7 +6,7 @@ module.exports = {
     'rule-empty-line-before': null,
     // 16颜色使用长表示法
     'color-hex-length': 'long',
-    // 16禁止颜色使用大写
+    // 16进制颜色使用小写
     'color-hex-case': 'lower',
     'unit-whitelist': ['em', 'rem', '%', 's', 'px', 'vh', 'vw', 'deg'],
     'declaration-colon-newline-after': null,
@@ -14,8 +14,8 @@ module.exports = {
     'shorthand-property-no-redundant-values': true,
     // 不允许属性值带供应商前缀   如：display: -webkit-flex;
     'value-no-vendor-prefix': true,
-    // 禁止使用!important  TODO: 临时注掉
-    // "declaration-no-important": false,
+    // 禁止使用!important
+    "declaration-no-important": false,
     // 禁止将可合并的属性分开写，如分别写padding-[left|right|top|bottom],但如果四个少一个的话可以分开写，如只写 right, left,top
     'declaration-block-no-redundant-longhand-properties': true,
     // 一行可显示属性个数
